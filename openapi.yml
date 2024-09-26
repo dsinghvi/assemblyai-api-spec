@@ -644,6 +644,26 @@ paths:
       x-fern-sdk-group-name: lemur
       x-fern-sdk-method-name: actionItems
       x-fern-request-name: LemurActionItemsParams
+      x-fern-examples: 
+        - codeSamples: 
+            - sdk: typescript
+              code: | 
+                import { AssemblyAI } from assemblyai; 
+
+                const client = new AssemblyAI({
+                  apiKey: process.env.ASSEMBLYAI_API_KEY,
+                });
+                
+                await client.lemur.actionItems({
+                  "transcript_ids": [
+                    "64nygnr62k-405c-4ae8-8a6b-d90b40ff3cce"
+                  ],
+                  "context": "This is an interview about wildfires.",
+                  "final_model": "default",
+                  "max_output_size": 3000,
+                  "temperature": 0,
+                  "answer_format": "Bullet Points"
+                });
       description: Use LeMUR to generate a list of action items from a transcript
       requestBody:
         description: Params to generate action items from transcripts
@@ -1096,44 +1116,44 @@ components:
             audio_url:
               description: The URL of the audio or video file to transcribe.
               type: string
-          example:
-            {
-              language_code: "en_us",
-              audio_url: "https://github.com/AssemblyAI-Examples/audio-examples/raw/main/20230607_me_canadian_wildfires.mp3",
-              punctuate: true,
-              format_text: true,
-              dual_channel: true,
-              webhook_url: "https://your-webhook-url/path",
-              webhook_auth_header_name: "webhook-secret",
-              webhook_auth_header_value: "webhook-secret-value",
-              auto_highlights: true,
-              audio_start_from: 10,
-              audio_end_at: 280,
-              word_boost: ["aws", "azure", "google cloud"],
-              boost_param: "high",
-              filter_profanity: true,
-              redact_pii: true,
-              redact_pii_audio: true,
-              redact_pii_audio_quality: "mp3",
-              redact_pii_policies: ["us_social_security_number", "credit_card_number"],
-              redact_pii_sub: "hash",
-              speaker_labels: true,
-              speakers_expected: 2,
-              content_safety: true,
-              iab_categories: true,
-              language_detection: false,
-              custom_spelling: [],
-              disfluencies: false,
-              sentiment_analysis: true,
-              auto_chapters: true,
-              entity_detection: true,
-              speech_threshold: 0.5,
-              summarization: true,
-              summary_model: "informative",
-              summary_type: "bullets",
-              custom_topics: true,
-              topics: [],
-            }
+      example:
+        {
+          language_code: "en_us",
+          audio_url: "https://github.com/AssemblyAI-Examples/audio-examples/raw/main/20230607_me_canadian_wildfires.mp3",
+          punctuate: true,
+          format_text: true,
+          dual_channel: true,
+          webhook_url: "https://your-webhook-url/path",
+          webhook_auth_header_name: "webhook-secret",
+          webhook_auth_header_value: "webhook-secret-value",
+          auto_highlights: true,
+          audio_start_from: 10,
+          audio_end_at: 280,
+          word_boost: ["aws", "azure", "google cloud"],
+          boost_param: "high",
+          filter_profanity: true,
+          redact_pii: true,
+          redact_pii_audio: true,
+          redact_pii_audio_quality: "mp3",
+          redact_pii_policies: ["us_social_security_number", "credit_card_number"],
+          redact_pii_sub: "hash",
+          speaker_labels: true,
+          speakers_expected: 2,
+          content_safety: true,
+          iab_categories: true,
+          language_detection: false,
+          custom_spelling: [],
+          disfluencies: false,
+          sentiment_analysis: true,
+          auto_chapters: true,
+          entity_detection: true,
+          speech_threshold: 0.5,
+          summarization: true,
+          summary_model: "informative",
+          summary_type: "bullets",
+          custom_topics: true,
+          topics: [],
+        }
 
     SummaryModel:
       type: string
